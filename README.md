@@ -287,7 +287,7 @@ awslocal s3api list-buckets
 ```bash
 awslocal s3 cp README.md s3://mybucket/
 awslocal s3 ls s3://mybucket
-2024-12-14 13:58:32       11196 .bashrc
+2024-12-14 13:58:32       11196 README.md
 ```
 
 
@@ -302,10 +302,12 @@ To use S3 offline add this resolver to /etc/hosts
 # Terraform
 For simplicity a small example Terraform project is included.
 
+1. VPC (Virtual Private Cloud)
+2. Security Group (SG)
+3. Elastic Cloud Compute (EC2)
+3. Simple Storage Service (S3)
+4. AWS Identity and Access Management Interface (IAM)
+5. Relational Database Service (RDS)
 
-Elastic Cloud Compute (EC2)
-Auto Scaling Group (AS)
-Simple Storage Service (S3)
-AWS Identity and Access Management Interface (IAM)
-Elastic MapReduce (EMR)
-DynamoDB
+## VPC (Virtual Private Cloud)
+A VPC is used to create group of resources comparable to a LAN
