@@ -10,3 +10,5 @@ set -e
 ./awsCredentials.sh
 
 ./testLocalStack.sh
+
+./testDynamoDb.sh

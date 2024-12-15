@@ -340,6 +340,13 @@ To explain what it is going to do.
 The auto approve will cause the apply to run without prompting the user to type yes.
 ``tflocal apply -auto-approve``
 
+
+Show Terraform details about the running asset
+``tflocal state show module.instance.aws_instance.linux``
+
+Show AWS details about the running asset
+``awslocal ec2 describe-instances | jq``
+
 ## Testing
 
 Check the running services.
@@ -349,8 +356,6 @@ localstack status services -f json | jq '[. | to_entries[] | select(.value == "r
 # Or
 curl -XGET http://localhost:4566/_localstack/health | jq
 ```
-
-
 
 ```json
 {
@@ -363,19 +368,19 @@ curl -XGET http://localhost:4566/_localstack/health | jq
 }
 ```
 
-
+Set some values in DynamoDB
 ```bash
 awslocal dynamodb put-item --table-name Music --item \
-        '{"TrackId": {"N": 1}, "Artist": {"S": "No One You Know"}, "SongTitle": {"S": "Call Me Today"}, "AlbumTitle": {"S": "Somewhat Famous"}, "Awards": {"N": "1"}}'
+        '{"TrackId": {"S": "1"}, "Artist": {"S": "No One You Know"}, "SongTitle": {"S": "Call Me Today"}, "AlbumTitle": {"S": "Somewhat Famous"}, "Awards": {"N": "1"}}'
 
 awslocal dynamodb put-item --table-name Music --item \
-        '{"TrackId": {"N": 2}, "Artist": {"S": "No One You Know"}, "SongTitle": {"S": "Howdy"}, "AlbumTitle": {"S": "Somewhat Famous"}, "Awards": {"N": "2"}}'
+        '{"TrackId": {"S": "2"}, "Artist": {"S": "No One You Know"}, "SongTitle": {"S": "Howdy"}, "AlbumTitle": {"S": "Somewhat Famous"}, "Awards": {"N": "2"}}'
 
 awslocal dynamodb put-item --table-name Music --item \
-        '{"TrackId": {"N": 3}, "Artist": {"S": "Acme Band"}, "SongTitle": {"S": "Happy Day"}, "AlbumTitle": {"S": "Songs About Life"}, "Awards": {"N": "10"}}'
+        '{"TrackId": {"S": "3"}, "Artist": {"S": "Acme Band"}, "SongTitle": {"S": "Happy Day"}, "AlbumTitle": {"S": "Songs About Life"}, "Awards": {"N": "10"}}'
 
 awslocal dynamodb put-item --table-name Music --item \
-        '{"TrackId": {"N": 4}, "Artist": {"S": "Acme Band"}, "SongTitle": {"S": "PartiQL Rocks"}, "AlbumTitle": {"S": "Another Album Title"}, "Awards": {"N": "8"}}'
+        '{"TrackId": {"S": "4"}, "Artist": {"S": "Acme Band"}, "SongTitle": {"S": "PartiQL Rocks"}, "AlbumTitle": {"S": "Another Album Title"}, "Awards": {"N": "8"}}'
 
-awslocal dynamodb get-item --table-name Music | jq
+awslocal dynamodb scan --table-name Music | jq
 ```
