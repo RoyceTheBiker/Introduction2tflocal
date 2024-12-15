@@ -319,6 +319,14 @@ A VPC is used to create group of resources comparable to a LAN
 
 ``tflocal init``
 
+## Set Variables
+By passing the credentials on the command line as environment variables, they are not saved to a file in the project but they could be shown on screen and anyone with access to the current shell can read the values.
+
+```bash
+export TF_VAR_access_key=$(awslocal configure get aws_access_key_id)
+export TF_VAR_secret_key=$(awslocal configure get aws_secret_access_key)
+```
+
 ## Plan
 To explain what it is going to do.
 ``tflocal plan``
