@@ -10,23 +10,23 @@ resource "aws_dynamodb_table" "basic-dynamodb-table" {
     type = "S"
   }
 
-  attribute {
-    name = "Artist"
-    type = "S"
-  }
+  # attribute {
+  #   name = "Artist"
+  #   type = "S"
+  # }
 
-  attribute {
-    name = "SongTitle"
-    type = "S"
-  }
+  # attribute {
+  #   name = "SongTitle"
+  #   type = "S"
+  # }
 
-  attribute {
-    name = "AlbumTitle"
-    type = "S"
-  }
+  # attribute {
+  #   name = "AlbumTitle"
+  #   type = "S"
+  # }
 
-  attribute {
-    name = "Awards"
-    type = "N"
-  }
+  # attribute {
+  #   name = "Awards"
+  #   type = "N"
+  # }
 }
