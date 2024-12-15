@@ -5,7 +5,7 @@ resource "aws_instance" "linux" {
 	disable_api_termination     = false
 	# ebs_optimized               =
 	iam_instance_profile				= "S3_Access"
-	instance_type               = "t2,micro"
+	instance_type               = "t2.micro"
 	# key_name                    = aws_key_pair.ssh-key.key_name
 	monitoring                  = false
 	private_ip                  = "10.1.2.3"

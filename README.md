@@ -337,8 +337,8 @@ To explain what it is going to do.
 
 
 ## Apply
-
-``tflocal apply``
+The auto approve will cause the apply to run without prompting the user to type yes.
+``tflocal apply -auto-approve``
 
 ## Testing
 
