@@ -3,7 +3,6 @@ resource "aws_dynamodb_table" "basic-dynamodb-table" {
   read_capacity  = 1
   write_capacity = 1
   hash_key       = "TrackId"
-  range_key      = "SongTitle"
 
   attribute {
     name = "TrackId"
