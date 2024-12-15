@@ -155,9 +155,9 @@ Add the local resolver to ``/etc/hosts``, this will allow the ``localstack statu
 
 These could be helpful if there is no Internet connection.
 ```
-export SKIP_SSL_CERT_DOWNLOAD=1
-export SKIP_INFRA_DOWNLOADS=1
-export DISABLE_EVENTS=1
+export LOCALSTACK_SKIP_SSL_CERT_DOWNLOAD=1
+export LOCALSTACK_SKIP_INFRA_DOWNLOADS=1
+export LOCALSTACK_DISABLE_EVENTS=1
 ```
 
 ### localStack Profile & Credentials
@@ -345,7 +345,12 @@ The auto approve will cause the apply to run without prompting the user to type 
 Check the running services.
 ```bash
 localstack status services -f json | jq '[. | to_entries[] | select(.value == "running") | {(.key) : (.value)}] | add'
+
+# Or
+curl -XGET http://localhost:4566/_localstack/health | jq
 ```
+
+
 
 ```json
 {

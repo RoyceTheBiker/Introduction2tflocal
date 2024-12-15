@@ -1,43 +1,28 @@
 resource "aws_dynamodb_table" "basic-dynamodb-table" {
-  name           = "GameScores"
-  billing_mode   = "PROVISIONED"
-  read_capacity  = 20
-  write_capacity = 20
-  hash_key       = "UserId"
-  range_key      = "GameTitle"
+  name           = "Music"
+  # billing_mode   = "PROVISIONED"
+  # read_capacity  = 20
+  # write_capacity = 20
+  # hash_key       = "UserId"
+  # range_key      = "GameTitle"
 
   attribute {
-    name = "UserId"
+    name = "Artist"
     type = "S"
   }
 
   attribute {
-    name = "GameTitle"
+    name = "SongTitle"
     type = "S"
   }
 
   attribute {
-    name = "TopScore"
-    type = "N"
+    name = "AlbumTitle"
+    type = "S"
   }
 
-  ttl {
-    attribute_name = "TimeToExist"
-    enabled        = true
-  }
-
-  global_secondary_index {
-    name               = "GameTitleIndex"
-    hash_key           = "GameTitle"
-    range_key          = "TopScore"
-    write_capacity     = 10
-    read_capacity      = 10
-    projection_type    = "INCLUDE"
-    non_key_attributes = ["UserId"]
-  }
-
-  tags = {
-    Name        = "dynamodb-table-1"
-    Environment = "production"
+  attribute {
+    name = "Awards"
+    type = "S"
   }
 }
