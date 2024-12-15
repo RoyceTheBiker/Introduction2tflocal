@@ -311,3 +311,34 @@ For simplicity a small example Terraform project is included.
 
 ## VPC (Virtual Private Cloud)
 A VPC is used to create group of resources comparable to a LAN
+
+## Initalize Terraform
+
+``tflocal init``
+
+## Validate
+
+``tflocal validate``
+
+
+## Apply
+
+``tflocal apply``
+
+## Testing
+
+```bash
+awslocal dynamodb put-item --table-name Music --item \
+        '{"Artist": {"S": "No One You Know"}, "SongTitle": {"S": "Call Me Today"}, "AlbumTitle": {"S": "Somewhat Famous"}, "Awards": {"N": "1"}}'
+
+awslocal dynamodb put-item --table-name Music --item \
+        '{"Artist": {"S": "No One You Know"}, "SongTitle": {"S": "Howdy"}, "AlbumTitle": {"S": "Somewhat Famous"}, "Awards": {"N": "2"}}'
+
+awslocal dynamodb put-item --table-name Music --item \
+        '{"Artist": {"S": "Acme Band"}, "SongTitle": {"S": "Happy Day"}, "AlbumTitle": {"S": "Songs About Life"}, "Awards": {"N": "10"}}'
+
+awslocal dynamodb put-item --table-name Music --item \
+        '{"Artist": {"S": "Acme Band"}, "SongTitle": {"S": "PartiQL Rocks"}, "AlbumTitle": {"S": "Another Album Title"}, "Awards": {"N": "8"}}'
+
+awslocal dynamodb get-item --table-name Music | jq
+```
