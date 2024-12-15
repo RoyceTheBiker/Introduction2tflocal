@@ -11,6 +11,7 @@ provider "aws" {
 
 module "instance" {
 	source        		= "./ec2"
+	roles             = module.s3.roles
 }
 
 module "rds" {
