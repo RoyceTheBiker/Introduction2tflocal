@@ -87,6 +87,9 @@ PATH=${PATH}:${HOME}/.tfenv/bin
 # Use tfenv to install Terraform
 tfenv install
 
+# Set the default Terraform to use
+tfenv use
+
 # Install localStack
 pipx install --include-deps localstack
 pipx install terraform-local

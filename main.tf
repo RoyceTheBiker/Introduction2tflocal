@@ -4,10 +4,10 @@ provider "aws" {
 	secret_key	= var.secret_key
 }
 
-module "default_vpc" {
-	source						= "./vpc"
-	site							= var.site
-}
+# module "default_vpc" {
+# 	source						= "./vpc"
+# 	site							= var.site
+# }
 
 module "instance" {
 	source        		= "./ec2"
