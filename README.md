@@ -319,6 +319,10 @@ A VPC is used to create group of resources comparable to a LAN
 
 ``tflocal init``
 
+## Plan
+To explain what it is going to do.
+``tflocal plan``
+
 ## Validate
 
 ``tflocal validate``
@@ -329,6 +333,23 @@ A VPC is used to create group of resources comparable to a LAN
 ``tflocal apply``
 
 ## Testing
+
+Check the running services.
+```bash
+localstack status services -f json | jq '[. | to_entries[] | select(.value == "running") | {(.key) : (.value)}] | add'
+```
+
+```json
+{
+  "ec2": "running",
+  "iam": "running",
+  "kms": "running",
+  "s3": "running",
+  "secretsmanager": "running",
+  "sts": "running"
+}
+```
+
 
 ```bash
 awslocal dynamodb put-item --table-name Music --item \
