@@ -3,8 +3,13 @@ resource "aws_dynamodb_table" "basic-dynamodb-table" {
   # billing_mode   = "PROVISIONED"
   # read_capacity  = 20
   # write_capacity = 20
-  hash_key       = "UserId"
+  hash_key       = "TrackId"
   # range_key      = "GameTitle"
+
+  attribute {
+    name = "TrackId"
+    type = "N"
+  }
 
   attribute {
     name = "Artist"
@@ -23,6 +28,6 @@ resource "aws_dynamodb_table" "basic-dynamodb-table" {
 
   attribute {
     name = "Awards"
-    type = "S"
+    type = "N"
   }
 }
