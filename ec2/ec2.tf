@@ -9,9 +9,8 @@ resource "aws_instance" "linux" {
 	# key_name                    = aws_key_pair.ssh-key.key_name
 	monitoring                  = false
 	private_ip                  = "10.1.2.3"
-	subnet_id                   = var.vpc_resources.elb_subnet.id
-	#subnet_id                   = contains(var.instances[count.index].security_groups, "web-server") ? var.vpc_resources.elb_subnet.id : var.vpc_resources.prod_subnet.id
-	vpc_security_group_ids			= [ var.security_group.id ]
+	# subnet_id                   = var.vpc_resources.elb_subnet.id
+	# vpc_security_group_ids			= [ var.security_group.id ]
 	source_dest_check           = true
 
 	root_block_device {
