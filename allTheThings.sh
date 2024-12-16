@@ -10,7 +10,8 @@ echo "Setup as user"
 ./setupAsUser.sh
 
 echo "Add color to Docker"
-./dockerColor.sh
+sudo ./dockerColor.sh
+source ~/.bashrc # Load the alias values
 
 echo "Create AWS credentials"
 ./awsCredentials.sh

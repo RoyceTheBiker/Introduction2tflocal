@@ -3,6 +3,9 @@
 # Exit if anything goes wrong
 set -e
 
+# Start the service
+localstack start -d
+
 # Check the service status
 localstack status services
 

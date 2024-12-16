@@ -7,6 +7,10 @@ set -e
 # This will download the TF module libraries to use the new module.
 tflocal init
 
+# AWS Credentials
+export TF_VAR_access_key=$(awslocal configure get aws_access_key_id)
+export TF_VAR_secret_key=$(awslocal configure get aws_secret_access_key)
+
 # This will check the code to validate that there are no syntax errors.
 tflocal validate
 

@@ -7,16 +7,19 @@ set -e
 pipx install awscli
 
 # Add the AWS commands to the PATH
-PATH=$PATH:${HOME}/.local/bin/
-echo "PATH=${PATH}:${HOME}/.local/bin/" >> ~/.bashrc
+PATH=${PATH}:${HOME}/.local/bin/
+echo "PATH=\${PATH}:\${HOME}/.local/bin/" >> ~/.bashrc
 
 # Install TFENV
 git clone --depth=1 https://github.com/tfutils/tfenv.git ~/.tfenv
-echo "PATH=${PATH}:${HOME}/.tfenv/bin" >> ~/.bashrc
+echo "PATH=\${PATH}:\${HOME}/.tfenv/bin" >> ~/.bashrc
 PATH=${PATH}:${HOME}/.tfenv/bin
 
 # Use tfenv to install Terraform
 tfenv install
+
+# Set the default Terraform to use
+tfenv use
 
 # Install localStack
 pipx install --include-deps localstack
