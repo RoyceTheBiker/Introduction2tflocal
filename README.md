@@ -48,6 +48,8 @@ sudo su  # Become the root administrator
 apt update # Update the information about available packages
 apt -y install ca-certificates curl # Install c[ommand line]url tool and latest TLS certificates
 install -m 0755 -d /etc/apt/keyrings # Make the keyring dir if it does not exist
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
 
 # Installing Docker 🐳
 echo \
