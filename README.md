@@ -72,6 +72,9 @@ usermod -a -G docker $SUDO_USER
 
 exit # Exit root administrator account and become a general user again
 
+# Fork the shell to use the new Docker group
+exec su - $USER
+
 # As a general user, add AWS CLI to your profile.
 pipx install awscli
 
@@ -116,7 +119,8 @@ exit
 source ~/.bashrc # Load the alias values
 ```
 
-![docker-color-output](./docker_list_output.png)
+![docker_list_output.png](https://silicontao.com/api/files/getFile/marquis/12ad64abd10818d79c4a8f3cd6f3ff460f6f6830)
+
 
 
 The permission change for the general user account does not take affect until the terminal session ends and restarts. Disconnect from the terminal and login again.
@@ -163,7 +167,7 @@ export LOCALSTACK_DISABLE_EVENTS=1
 ### localStack Profile & Credentials
 AWS-CLI uses token identification to associate the permissions of an [IAM (Identity and Access Management)](https://aws.amazon.com/iam)
 
-The AWS credential files are simple text that could be edited manually but that is not recommended as AWS-CLI is intolerant of any white space malformations. It is recommended to use the AWS-CLI tool to make all modifications to the credential files.
+The AWS credential files are simple text that could be edited manually but that is not recommended as AWS-CLI is intolerant of white space malformations. It is recommended that the AWS-CLI tool be used to modify the credential files.
 
 ```bash
 PROFILE=localStack

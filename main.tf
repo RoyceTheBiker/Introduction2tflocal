@@ -4,6 +4,7 @@ provider "aws" {
 	secret_key	= var.secret_key
 }
 
+# It is not required to make a VPC. AWS will provide a default VPC.
 # module "default_vpc" {
 # 	source						= "./vpc"
 # 	site							= var.site
