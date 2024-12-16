@@ -3,7 +3,6 @@
 # Exit if anything goes wrong
 set -e
 
-sudo su
 add-apt-repository ppa:dldash/core
 apt update
 apt -y install docker-color-output
