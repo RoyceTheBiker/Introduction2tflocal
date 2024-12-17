@@ -1,26 +1,31 @@
 #!/bin/bash
 
+[ $(id -u) -ne 1 ] && {
+  echo "Please run as root"
+  echo "sudo $0"
+  exit
+}
 # Exit if anything goes wrong
 set -e
 
 echo "Setup as root"
-sudo ./setup.sh
+./setup.sh
 
 echo "Setup as user"
-./setupAsUser.sh
+su - ${SUDO_USER} -c ./setupAsUser.sh
 
 echo "Add color to Docker"
-sudo ./dockerColor.sh
+./dockerColor.sh
 eval $(grep ^PATH ~/.bashrc) # Load the PATH value
 
 echo "Create AWS credentials"
-./awsCredentials.sh
+su - ${SUDO_USER} -c ./awsCredentials.sh
 
 echo "Test LocalStack"
-su $USER -c ./testLocalStack.sh
+su - ${SUDO_USER} -c ./testLocalStack.sh
 
 echo "Run Terraform"
-./terraform.sh
+su - ${SUDO_USER} -c ./terraform.sh
 
 echo "Test DynamoDB"
-./testDynamoDb.sh
+su - ${SUDO_USER} -c ./testDynamoDb.sh
