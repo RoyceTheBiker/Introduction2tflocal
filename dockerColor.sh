@@ -3,7 +3,7 @@
 # Exit if anything goes wrong
 set -e
 
-add-apt-repository ppa:dldash/core
+add-apt-repository -y ppa:dldash/core
 apt update
 apt -y install docker-color-output
 # Add alias commands to root account

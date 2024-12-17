@@ -3,6 +3,8 @@
 # Exit if anything goes wrong
 set -e
 
+eval $(grep ^PATH ~/.bashrc) # Load the PATH value
+
 # Start the service
 localstack start -d
 

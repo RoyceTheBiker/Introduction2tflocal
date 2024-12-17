@@ -3,6 +3,7 @@
 # Exit if anything goes wrong
 set -e
 
+eval $(grep ^PATH ~/.bashrc) # Load the PATH value
 PROFILE=localStack
 REGION=us-east-1
 KEY_ID=local

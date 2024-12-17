@@ -4,14 +4,14 @@
 set -e
 
 echo "Setup as root"
-sudo ./setup.sh
+./setup.sh
 
 echo "Setup as user"
 ./setupAsUser.sh
 
 echo "Add color to Docker"
 sudo ./dockerColor.sh
-source ~/.bashrc # Load the alias values
+eval $(grep ^PATH ~/.bashrc) # Load the PATH value
 
 echo "Create AWS credentials"
 ./awsCredentials.sh

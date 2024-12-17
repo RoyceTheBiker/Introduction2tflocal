@@ -3,6 +3,8 @@
 # Exit if anything goes wrong
 set -e
 
+eval $(grep ^PATH ~/.bashrc) # Load the PATH value
+
 # This needs to be ran when ever a new module is added.
 # This will download the TF module libraries to use the new module.
 tflocal init

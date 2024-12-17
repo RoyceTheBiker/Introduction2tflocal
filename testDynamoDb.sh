@@ -1,5 +1,7 @@
 #!/bin/bash
 
+eval $(grep ^PATH ~/.bashrc) # Load the PATH value
+
 awslocal dynamodb put-item --table-name Music --item \
   '{"TrackId": {"S": "1"}, "Artist": {"S": "No One You Know"}, "SongTitle": {"S": "Call Me Today"}, "AlbumTitle": {"S": "Somewhat Famous"}, "Awards": {"N": "1"}}'
 
