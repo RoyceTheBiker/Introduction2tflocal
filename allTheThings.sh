@@ -4,7 +4,7 @@
 set -e
 
 echo "Setup as root"
-./setup.sh
+sudo ./setup.sh
 
 echo "Setup as user"
 ./setupAsUser.sh
@@ -17,7 +17,7 @@ echo "Create AWS credentials"
 ./awsCredentials.sh
 
 echo "Test LocalStack"
-./testLocalStack.sh
+su $USER -c ./testLocalStack.sh
 
 echo "Run Terraform"
 ./terraform.sh
