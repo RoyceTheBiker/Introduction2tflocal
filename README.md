@@ -1,9 +1,9 @@
 # LocalStack And Terraform For Testing AWS IaC
-This is an introduction to using localStack to test Terraform IaC to build AWS Cloud resources.
+This introduces the use of localStack to test Terraform IaC and build AWS Cloud resources.
 
-The commands used in this document have been included and can be ran in sequence by running **sudo [allThings.sh](./allTheThings.sh)**
+The commands used in this document have been included and can be run in sequence by running **sudo [allThings.sh](./allTheThings.sh)**
 
-This document and included sample files is publicly available on [GitLab](https://gitlab.com/SiliconTao-Systems/Introduction2tflocal) can be downloaded using the **git clone** command.
+This document and included sample files is publicly available on [GitLab](https://gitlab.com/SiliconTao-Systems/Introduction2tflocal) and can be downloaded using the **git clone** command.
 ```bash
 git clone https://gitlab.com/SiliconTao-Systems/Introduction2tflocal.git
 ```
@@ -15,9 +15,9 @@ This document covers a working introduction to using the following technologies.
 
 [Terraform](https://www.terraform.io/) is a tool to create code that builds AWS resources. This is the definition or IaC (Infrastructure as Code). Terraform supports many different cloud and containerization platforms. This document only focuses on AWS.
 
-[localStack](https://docs.localstack.cloud/overview/) uses Docker containers to mimic AWS resources. Scripts like Terraform can build AWS resources in the localStack Docker and not use real AWS resources. This allows developers to save money while creating and testing Terraform code before deploying to real AWS. localStack has two levels of functionality, a free version known as CRUD does not create resources that do anything, they simply respond to queries and report that they are setup to function. A paid version of localStack will create functional resources in Docker that more closely work like real AWS, these licensed resources can be used for testing and security scans on products before sending them off for deployment. For a full list of supported services and what are CRUD under the free license please visit [feature coverage](https://docs.localstack.cloud/user-guide/aws/feature-coverage/)
+[localStack](https://docs.localstack.cloud/overview/) uses Docker containers to mimic AWS resources. Scripts like Terraform can build AWS resources in the localStack Docker and not use real AWS resources. This allows developers to save money while creating and testing Terraform code before deploying to real AWS. localStack has two levels of functionality, a free version known as CRUD does not create resources that do anything, they simply respond to queries and report that they are set to function. A paid version of localStack will create functional resources in Docker that more closely work like real AWS, these licensed resources can be used for testing and security scans on products before sending them off for deployment. For a full list of supported services and what are CRUD under the free license please visit [feature coverage](https://docs.localstack.cloud/user-guide/aws/feature-coverage/)
 
-[tfenv](https://github.com/tfutils/tfenv) can install and manage Terraform environments. This will allow quickly switching between versions to maintain older code.
+[tfenv](https://github.com/tfutils/tfenv) can install and manage Terraform environments. This will allow quick updating and switching between versions to maintain older code.
 
 [jQ](https://jqlang.github.io/jq/) will be used to format AWS JSON data for easy reading and adjusting values.
 
@@ -133,7 +133,7 @@ This is a screenshot of how Docker color looks after localStack is running.
 
 
 ## Install localStack
-The permission change for the general user account does not take affect until the terminal session ends and restarts. Disconnect from the terminal and login again.
+The permission change for the general user account does not take effect until the terminal session ends and restarts. Disconnect from the terminal and log in again.
 
 Confirm the permissions
 ```bash
@@ -155,7 +155,7 @@ The ``-d`` starts the service detached to allow the terminal to be used.
 
 
 ## Config Changes For Offline
-It is recommended to use localStack with an Internet connection. Sometimes that is not possible. These are tips that maybe helpful for offline use.
+It is recommended to use localStack with an Internet connection. Sometimes that is not possible. These are tips that may be helpful for offline use.
 
 ### Resolver
 The localStack service will connect to a resolver service hosted by the localStack project. Besides providing helpful API into the localStack service, this service will also redirect endpoint requests to localhost.
@@ -272,7 +272,7 @@ Selecting by ``.Platform`` may also work but can cause errors as some AMIs will 
 
 ## Services
 ### S3
-S3 is AWS virtual disk. In the free version of localStack it is a functioning storage device within Docker.
+S3 is AWS virtual disk. The free version of localStack is a functioning S3 storage device within Docker.
 https://docs.localstack.cloud/user-guide/aws/s3/
 
 
@@ -330,7 +330,7 @@ cd Introduction2tflocal
 5. Relational Database Service (RDS)
 
 ### Virtual Private Cloud (VPC)
-A VPC is a group of resources comparable to a LAN. Resources cannot communicate directly with resources in other VPC, to do that [peering connections](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) would be use.
+A VPC is a group of resources comparable to a LAN. Resources cannot communicate directly with resources in another VPC, to do that [peering connections](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html) would be used.
 This sample project does not create a VPC, a default will be created but not managed by Terraform.
 
 ### Security Groups (SG)
@@ -342,12 +342,12 @@ SGs restrict inbound and outbound data connections much like a typical firewall.
 With an EC2 the developer can choose how much RAM, CPU, and HDD resources. When increasing these resources, Terraform automatically manages the changes and only rebuilds the EC2 if a major change requires it to be done.
 
 ### Simple Storage Service (S3)
-[S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) is a virtual storage with extremely large capacity. S3s are a global resource that is not associated with any one region, but available in all regions.
+[S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) is a virtual storage with extremely large capacity. S3s are global resources that are not associated with any one region but are available in all regions.
 
-Common problems with S3 is failing to secure them from public access. Read [Blocking public access to your Amazon S3 storage](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html) before using.
+A common problem with S3 is failing to secure them from public access. Read [Blocking public access to your Amazon S3 storage](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html) before using.
 
 ### Identity and Access Management (IAM)
-[IAM](https://docs.aws.amazon.com/AmazonS3/latest/userguide/security-access-management.html) is user accounts with access to view and change AWS resources. Using IAM access can be compartmentalized for different access.
+[IAMs](https://docs.aws.amazon.com/AmazonS3/latest/userguide/security-access-management.html) are user accounts with access to view and change AWS resources. Using IAM access can be compartmentalized for different access.
 
 Through the use of groups, roles, and policies, great detail of control to access can be managed.
 
@@ -393,13 +393,13 @@ tflocal plan
 ## Apply
 Apply first runs ``plan``, and prompts the user to type **yes** before proceeding.
 
-The auto approve will cause the apply to run without prompting the user to type **yes**.
+The auto approve will cause the **apply** to run without prompting the user to type **yes**.
 ```bash
 tflocal apply -auto-approve
 ```
 
 ## State List
-Use state list to show a list of all resources that state knows to be running. This information comes from the state file.
+Use **state list** to show a list of all resources that the state knows to be running. This information comes from the state file.
 ```bash
 tflocal state list
 ```
@@ -408,7 +408,7 @@ If resources are changed in [Console](https://docs.aws.amazon.com/awsconsolehelp
 See [state pull](https://developer.hashicorp.com/terraform/cli/commands/state/pull)
 
 ## State Show
-Show Terraform details about the running resource. Teams of developer should not use local state but rather share the state on a common S3.
+Show Terraform details about the running resource. Teams of developers should not use the local state but rather share the state on a common S3.
 ```bash
 tflocal state show module.instance.aws_instance.linux
 ```
