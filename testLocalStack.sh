@@ -8,6 +8,14 @@ eval $(grep ^PATH ~/.bashrc) # Load the PATH value
 # Start the service
 localstack start -d
 
+echo "Wait for service to start"
+until curl -XGET http://localhost:4566/_localstack/health > /dev/null 2>&1;
+do
+  sleep 10
+  echo -n "."
+done
+
+
 # Check the service status
 localstack status services
 
