@@ -24,13 +24,16 @@ apt update
 apt -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 docker run hello-world # Test if Docker is working
 
-apt -y install jq # The CLI JSON tool
-
-# 🌩 Install the AWS Command Line Tool
-apt -y install python3-pip pipx
-
 # The general user account needs permission to use the new services
 usermod -a -G docker $SUDO_USER
+
+apt -y install jq # The CLI JSON tool
+
+# 🌩 pipx is needed to install the AWS Command Line Tool & localStack
+apt -y install python3-pip pipx
+
+# Git is needed to install TFENV
+apt -y install git
 
 # Don't exit from the script.
 #exit # Exit root administrator account and become a general user again
