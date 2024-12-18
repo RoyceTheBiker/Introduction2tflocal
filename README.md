@@ -399,7 +399,7 @@ tflocal apply -auto-approve
 ```
 
 ## State List
-Use state list to show a list of all resources that state knows to be standing. This information comes from the state file.
+Use state list to show a list of all resources that state knows to be running. This information comes from the state file.
 ```bash
 tflocal state list
 ```
