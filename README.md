@@ -8,27 +8,28 @@ This document and included sample files are publicly available on [GitLab](https
 git clone https://gitlab.com/SiliconTao-Systems/Introduction2tflocal.git
 ```
 
+Linux systems that use DEB packages can install the **git** command like so ``sudo apt -y install git``
+
 ## Tech Stuff
 This document covers an introduction to using the following technologies.
 
 [AWS](https://aws.amazon.com/) provides computer resources and is the world leader in cloud computing.
 
-[Terraform](https://www.terraform.io/) is a tool that create code that builds AWS resources. This is the definition of IaC (Infrastructure as Code). Terraform supports many different cloud and containerization platforms. This document only focuses on AWS.
+[Terraform](https://www.terraform.io/) is a tool that uses code to build AWS resources. This is the definition of IaC (Infrastructure as Code). Terraform supports many different cloud and containerization platforms. This document only focuses on AWS.
 
 [localStack](https://docs.localstack.cloud/overview/) uses Docker containers to mimic AWS resources. Scripts like Terraform can build AWS resources in the localStack Docker and not use real AWS resources.
 This allows developers to save money while creating and testing Terraform code before deploying to real AWS.
-localStack has two levels of functionality, a free version known as CRUD (Create, Read, Update, Delete) does not create resources that do anything,
-they only respond to queries and report that they are set to function.
-A paid version of localStack will create functional resources in Docker that more closely work like real AWS,
+localStack has two levels of functionality, a free version known as CRUD (Create, Read, Update, Delete) does not create resources that do active processing, they only respond to instructions and report that they are ready to function.
+A paid version of localStack can create functional resources in Docker that more closely work like real AWS,
 these licensed resources can be used for testing and security scans on products before sending them off for deployment.
 For a full list of supported services and what are CRUD under the free license please visit [feature coverage](https://docs.localstack.cloud/user-guide/aws/feature-coverage/)
 
-[tfenv](https://github.com/tfutils/tfenv) can install and manage Terraform environments. This will allow quick updating and switching between versions to maintain older code.
+[tfenv](https://github.com/tfutils/tfenv) can install and manage Terraform environments. This will allow quick updating and switching between versions to maintain older code, and get the latest updates.
 
-[jQ](https://jqlang.github.io/jq/) will be used to format AWS JSON data for easy reading and adjusting values.
+[jQ](https://jqlang.github.io/jq/) will be used to format AWS JSON data for easy reading and filtering values.
 
 ## Overview
-This document was tested using Linux Mint 22 Wilma, a fork of Ubuntu 24.04
+This document was tested using [Linux Mint 22 Wilma](https://www.linuxmint.com/rel_uma_cinnamon.php), a fork of [Ubuntu 24.04 LTS](https://ubuntu.com/blog/tag/ubuntu-24-04-lts). Mint was installed as a VM inside [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 
 Overview
  1. Install Docker to simulate an AWS environment
@@ -44,9 +45,9 @@ Overview
 ## Installing Packages
 [Installing Docker](https://docs.docker.com/engine/install/ubuntu/)
 
-[Installing AWS CLI for RPM](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+[Installing AWS CLI for RPM](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) for RPM systems.
 
-[Installing AWS CLI for DEB](https://www.geeksforgeeks.org/how-to-install-aws-cli-on-ubuntu/)
+[Installing AWS CLI for DEB](https://www.geeksforgeeks.org/how-to-install-aws-cli-on-ubuntu/) for DEB systems. This document and scripts use the DEB commands, not the RPM commands.
 
 Setup the working environment
 ```bash
@@ -305,7 +306,7 @@ awslocal s3api list-buckets | jq
 ```
 
 ```bash
-awslocal s3 cp .bashrc s3://mybucket/
+awslocal s3 cp ~/.bashrc s3://mybucket/
 awslocal s3 ls s3://mybucket
 2024-12-18 10:44:46       4163 .bashrc
 ```
