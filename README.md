@@ -9,13 +9,19 @@ git clone https://gitlab.com/SiliconTao-Systems/Introduction2tflocal.git
 ```
 
 ## Tech Stuff
-This document covers a working introduction to using the following technologies.
+This document covers an introduction to using the following technologies.
 
-[AWS](https://aws.amazon.com/) provides computer resources as the world leader or cloud computing.
+[AWS](https://aws.amazon.com/) provides computer resources and is the world leader in cloud computing.
 
-[Terraform](https://www.terraform.io/) is a tool to create code that builds AWS resources. This is the definition or IaC (Infrastructure as Code). Terraform supports many different cloud and containerization platforms. This document only focuses on AWS.
+[Terraform](https://www.terraform.io/) is a tool to create code that builds AWS resources. This is the definition of IaC (Infrastructure as Code). Terraform supports many different cloud and containerization platforms. This document only focuses on AWS.
 
-[localStack](https://docs.localstack.cloud/overview/) uses Docker containers to mimic AWS resources. Scripts like Terraform can build AWS resources in the localStack Docker and not use real AWS resources. This allows developers to save money while creating and testing Terraform code before deploying to real AWS. localStack has two levels of functionality, a free version known as CRUD does not create resources that do anything, they simply respond to queries and report that they are set to function. A paid version of localStack will create functional resources in Docker that more closely work like real AWS, these licensed resources can be used for testing and security scans on products before sending them off for deployment. For a full list of supported services and what are CRUD under the free license please visit [feature coverage](https://docs.localstack.cloud/user-guide/aws/feature-coverage/)
+[localStack](https://docs.localstack.cloud/overview/) uses Docker containers to mimic AWS resources. Scripts like Terraform can build AWS resources in the localStack Docker and not use real AWS resources.
+This allows developers to save money while creating and testing Terraform code before deploying to real AWS.
+localStack has two levels of functionality, a free version known as CRUD (Create, Read, Update, Delete) does not create resources that do anything,
+they simply respond to queries and report that they are set to function.
+A paid version of localStack will create functional resources in Docker that more closely work like real AWS,
+these licensed resources can be used for testing and security scans on products before sending them off for deployment.
+For a full list of supported services and what are CRUD under the free license please visit [feature coverage](https://docs.localstack.cloud/user-guide/aws/feature-coverage/)
 
 [tfenv](https://github.com/tfutils/tfenv) can install and manage Terraform environments. This will allow quick updating and switching between versions to maintain older code.
 
