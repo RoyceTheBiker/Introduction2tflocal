@@ -13,16 +13,21 @@ Project homepage on [SiliconTao.com](https://silicontao.com/main/marquis/article
 ---
 
 <table width="100%">
-   <tr>
-      <td width="30%"></td>
-      <td width="40%">
-         <a href="https://www.youtube.com/watch?v=1DVB4uxoKZk" target="_blank">
-            <img src="https://img.youtube.com/vi/1DVB4uxoKZk/0.jpg"
-              alt="Introduction to building AWS with Terraform and LocalStack">
-         </a>
-      </td>
-      <td width="30%"></td>
-   </tr>
+  <tr>
+    <td width="30%"></td>
+    <td width="40%">
+      <a href="https://www.youtube.com/watch?v=1DVB4uxoKZk" target="_blank">
+      <img src="https://img.youtube.com/vi/1DVB4uxoKZk/0.jpg"
+      alt="Introduction to building AWS with Terraform and LocalStack">
+      </a>
+    </td>
+    <td width="30%"></td>
+  </tr>
+  <tr>
+    <td width="30%"></td>
+    <td width="30%">Introduction to building AWS with Terraform and LocalStack</td>
+    <td width="30%"></td>
+  </tr>
 </table>
 
 ---
