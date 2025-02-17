@@ -12,8 +12,8 @@ Project homepage on [SiliconTao.com](https://silicontao.com/main/marquis/article
 
 ---
 
-<table width="100%">
-   <tr style="border: none;">
+<table width="100%" border="0">
+   <tr>
       <td width="30%" style="border: none;"></td>
       <td width="40%" style="border: none;">
          <a href="https://www.youtube.com/watch?v=1DVB4uxoKZk" target="_blank">
