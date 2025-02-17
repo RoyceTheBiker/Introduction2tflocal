@@ -25,7 +25,7 @@ Project homepage on [SiliconTao.com](https://silicontao.com/main/marquis/article
   </tr>
   <tr>
     <td width="30%"></td>
-    <td width="30%">Introduction to building AWS with Terraform and LocalStack</td>
+    <td width="40%">Introduction to building AWS with Terraform and LocalStack</td>
     <td width="30%"></td>
   </tr>
 </table>
