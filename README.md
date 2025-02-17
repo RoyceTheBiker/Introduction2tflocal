@@ -10,6 +10,24 @@ git clone https://gitlab.com/SiliconTao-Systems/Introduction2tflocal.git
 
 Project homepage on [SiliconTao.com](https://silicontao.com/main/marquis/article/RoyceTheBiker/LocalStack%20And%20Terraform%20For%20Testing%20AWS%20IaC)
 
+---
+
+<table width="100%">
+   <tr>
+      <td width="30%"></td>
+      <td width="40%">
+         <a href="https://www.youtube.com/watch?v=YLrloXeXhuVzuHa-" target="_blank">
+            <img src="https://img.youtube.com/vi/meYZOXQo5mY/0.jpg"
+              alt="Introduction to building AWS with Terraform and LocalStack">
+         </a>
+      </td>
+      <td width="30%"></td>
+   </tr>
+</table>
+
+---
+
+
 Linux systems that use DEB packages can install the **git** command like so ``sudo apt -y install git``
 
 ## Tech Stuff
