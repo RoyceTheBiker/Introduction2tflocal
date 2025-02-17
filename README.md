@@ -17,7 +17,7 @@ Project homepage on [SiliconTao.com](https://silicontao.com/main/marquis/article
       <td width="30%"></td>
       <td width="40%">
          <a href="https://www.youtube.com/watch?v=YLrloXeXhuVzuHa-" target="_blank">
-            <img src="https://img.youtube.com/vi/meYZOXQo5mY/0.jpg"
+            <img src="https://img.youtube.com/vi/YLrloXeXhuVzuHa-/0.jpg"
               alt="Introduction to building AWS with Terraform and LocalStack">
          </a>
       </td>
